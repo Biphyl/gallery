@@ -1,6 +1,7 @@
 import datetime as dt
 from django.shortcuts import render, redirect
 from django.http import HttpResponse,Http404
+from .models import Location, Category, Image
 
 # Create your views here.
 def index(request):
@@ -31,3 +32,16 @@ def past_days_photos(request,past_date):
     if date == dt.date.today():
         return redirect(photo_of_day)
     return HttpResponse(request, 'past_photos.html', {"date": date, })
+
+def search_results(request):
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
+        searched_category = Image.search_by_category(search_term)
+
+        message = f"{search_term}"
+        return render(request, 'photos/search.html', {"message": message, "category": searched_category })
+
+    else:
+        message = "You have not searched for any category"
+        return render(request, 'photod/search.html', {"message"message})
+
