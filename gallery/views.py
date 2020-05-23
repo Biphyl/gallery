@@ -1,5 +1,5 @@
 import datetime as dt
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse,Http404
 
 # Create your views here.
@@ -9,14 +9,8 @@ def index(request):
 def photo_of_day(request):
     date = dt.date.today()
     day = dt.date.today()
-    html = f'''
-        <html>
-            <body>
-                <h1> {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
+    
+    return HttpResponse(request, 'todays_photos.html', {"date": date})
 
 def convert_dates(dates):
     day_number = dt.date.(dates)
@@ -32,4 +26,8 @@ def past_days_photos(request,past_date):
     except ValueError:
         # Raise 404 error when ValueError is thrown
         raise Http404())
-    return HttpResponse(html)
+        assert False
+
+    if date == dt.date.today():
+        return redirect(photo_of_day)
+    return HttpResponse(request, 'past_photos.html', {"date": date, })
