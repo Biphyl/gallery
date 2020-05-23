@@ -43,5 +43,27 @@ def search_results(request):
 
     else:
         message = "You have not searched for any category"
-        return render(request, 'photod/search.html', {"message"message})
+        return render(request, 'photos/search.html', {"message"message})
+
+# def photo(request):
+#     photo = Photo.get_all()
+#     return render(request, 'photos/images.html', {"image":image })
+
+def detail(request, image_id):
+    image = Image.objects.get(id = image_id)
+    return render(request, 'photos/details.html', {"image":image })
+
+def location(request, country):
+    location = Location.objects.get(id =country)
+    return render(request, 'photos/location.html', {"image":image })
+
+def admin_dashboard(request):
+    admin = Admin
+
+def category(request,category_id):
+    try:
+        category = category.objects.get(id = category_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"photos/category.html", {"category":category})
 
