@@ -20,6 +20,14 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category
+    def save_category(self):
+        self.save()
+    def delete_category(self):
+        self.delete()
+    @classmethod
+    def update(cls,id,name):
+        category = Category.objects.filter(id=id)
+        category.update(category=name)
 
 
 class Image(models.Model):
