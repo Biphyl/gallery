@@ -4,10 +4,13 @@ from django.urls import path
 from . import views
 
 urlpatterns=[
-    path('',views.index,name= 'Welcome'),
-    path('today/',views.photo_of_day,name='photoToday'),
-    path(r'archives/(\d{4}-\d{2}-\d{2})/',views.past_days_photos,name= 'pastPhotos')
+    path('^$',views.index,name = 'index'),
+    path(r'category/(\d+)',views.category,name ='category'),
+    path(r'admin/', views.admin_dashboard,name = "admin_dashboard"),
+    path(r'archives/(\d{4}-\d{2}-\d{2})/', views.past_days_photos, name = 'pastPhotos'),
+   url(r'search/', views.search_results, name='search_results')
 ]
 
 if settings.DEBUG:
-    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
