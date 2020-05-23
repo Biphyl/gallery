@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.http import HttpResponse,Http404
 
 # Create your views here.
-def welcome(request):
-    return HttpResponse('Welcome to my gallery')
+def index(request):
+    return HttpResponse(request, 'index.html')
 
 def photo_of_day(request):
     date = dt.date.today()
