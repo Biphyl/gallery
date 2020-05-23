@@ -8,6 +8,7 @@ def welcome(request):
 
 def photo_of_day(request):
     date = dt.date.today()
+    day = dt.date.today()
     html = f'''
         <html>
             <body>
@@ -23,3 +24,4 @@ def convert_dates(dates):
 
     day = days[day_number]
     return day
+
