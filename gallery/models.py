@@ -1,6 +1,4 @@
-from django.db import models
-from 
-
+from django.db import models 
 
 # Create your models here.
 class Location(models.Model):
@@ -17,8 +15,8 @@ class Category(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to= )
+    image = models.ImageField()
     name = models.CharField(max_length=50)
     description = models.TextField()
-    location = models.ForeignKey(Location)
-    category = models.ForeignKey(Category)
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
