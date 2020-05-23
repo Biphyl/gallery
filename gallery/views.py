@@ -13,7 +13,7 @@ def photo_of_day(request):
     return HttpResponse(request, 'todays_photos.html', {"date": date})
 
 def convert_dates(dates):
-    day_number = dt.date.(dates)
+    day_number = dt.date(dates)
     days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 
     day = days[day_number]
@@ -25,7 +25,7 @@ def past_days_photos(request,past_date):
 
     except ValueError:
         # Raise 404 error when ValueError is thrown
-        raise Http404())
+        raise Http404()
         assert False
 
     if date == dt.date.today():
