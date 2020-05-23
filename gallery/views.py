@@ -16,3 +16,10 @@ def photo_of_day(request):
         </html>
             '''
     return HttpResponse(html)
+
+def convert_dates(dates):
+    day_number = dt.date.(dates)
+    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+
+    day = days[day_number]
+    return day
