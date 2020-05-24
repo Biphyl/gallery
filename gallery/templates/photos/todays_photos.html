@@ -1,4 +1,4 @@
-{% extend 'photos/base.html' %}
+{% extends 'photos/base.html' %}
 
 {% block content %}
     {{block.super}}
@@ -14,7 +14,7 @@
     
             <!--Display photos Article images  -->
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <img src="{{photos_item.category_image.url}}" class="img-responsive" alt="Image">
+                <img src="{{ gallery_item.category.url}}" class="img-responsive" alt="Image">
             </div>
     
         </div>

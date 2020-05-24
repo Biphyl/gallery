@@ -11,8 +11,8 @@ class Location(models.Model):
         self.delete()
     @classmethod
     def update(cls,id,name):
-        location = Location.objects.filter(id=id)
-        location.update(place=name)
+        place = Location.objects.filter(id=id)
+        place.update(place=name)
 
 
 class Category(models.Model):
@@ -31,6 +31,7 @@ class Category(models.Model):
 
 
 class Image(models.Model):
+    # id = models.IntegerField(primary_key=True)
     image = models.ImageField()
     name = models.CharField(max_length=50)
     description = models.TextField()
@@ -49,7 +50,7 @@ class Image(models.Model):
         return images
     @classmethod
     def search_by_category(cls,search_term):
-        image = cls.objects.filter(category_item__category__icontains=search_term)
+        image = cls.objects.filter(category_id__category__icontains=search_term)
         return image
     @classmethod
     def update(cls,id,name):
@@ -64,7 +65,7 @@ class Image(models.Model):
         return image
     @classmethod
     def filter_location(cls,fil):
-        location_image=Image.objects.filter(location__country__icointain=fil)
+        location_image=Image.objects.filter(location__place__icointain=fil)
         return location_image
 
     
