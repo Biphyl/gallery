@@ -82,7 +82,7 @@ import django_heroku
 import dj_database_url
 
 
-MODE=config("MODE", default="dev")
+MODE = config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 if config('MODE')=="dev":
