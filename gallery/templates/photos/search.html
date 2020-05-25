@@ -3,7 +3,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
 <div class="container">
-    <h1>  </h1>
+    <h1> </h1>
     <br>
     <div class="row">
         {% if category %}
@@ -23,8 +23,8 @@
         <div class="col-md-4">
             <div class="card">
                 <a data-toggle="modal" data-target="#{{cat.id}}">
-                    <img style="margin-top:20px; margin-bottom:20px;" src="{{cat.image.cdn_url}}" alt="Image" height="200"
-                        width="300"><br><br>
+                    <img style="margin-top:20px; margin-bottom:20px;" src="{{cat.image.cdn_url}}" alt="Image"
+                        height="200" width="300"><br><br>
                 </a>
             </div>
         </div>
@@ -45,8 +45,8 @@
 
                             <button class="btn btn-primary" onclick="imageurl('{{image.id}}-url')">copy mage
                                 link address</button>
-                            <input class="form-control input-lg" type="text"
-                                value="{{cat.image.cdn_url}}" id="{{image.id}}-url">
+                            <input class="form-control input-lg" type="text" value="{{cat.image.cdn_url}}"
+                                id="{{image.id}}-url">
                         </div>
                     </div>
                     <script>

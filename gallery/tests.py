@@ -21,7 +21,6 @@ class LocationTestClass(TestCase):
         self.assertTrue(Location.place,updated.place)
     
 
-
 class CategoryTestClass(TestCase):
     '''
     test for category class
